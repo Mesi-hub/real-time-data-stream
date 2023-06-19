@@ -27,9 +27,10 @@ public class RtdisService {
     public RtdisService(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
-    private String getValidKafkaTopic(String channelName) {
-        return "rtdis_group_1" + channelName.replaceAll("[^A-Za-z0-9._-]", "_");
-    }
+
+//    private String getValidKafkaTopic(String channelName) {
+//        return "rtdis_group_1" + channelName.replaceAll("[^A-Za-z0-9._-]", "_");
+//    }
 
     public void startAblySubscription(String ablyApiKey, String channelName) {
         System.out.println("startAblySubscription method called");
@@ -56,8 +57,8 @@ public class RtdisService {
     private void publishToKafka(String channelName, String jsonData) {
         // Publish the received JSON data to Kafka with the unique channel name as the topic
 
-        String kafkaTopic = getValidKafkaTopic(channelName);
-        //String kafkaTopic = "rtdis_group_1" + channelName;
+        //String kafkaTopic = getValidKafkaTopic(channelName);
+        String kafkaTopic = "rtdis_1" ;
         kafkaTemplate.send(kafkaTopic, jsonData);
 
         System.out.println("kafkaTopic: " + kafkaTopic);
