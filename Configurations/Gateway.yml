@@ -1,1 +1,10 @@
+check: checking working properly
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: products
+          uri: http://localhost:8091 
+          predicates:
+            - Path=/products/**
 
