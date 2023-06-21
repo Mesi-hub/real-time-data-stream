@@ -1,3 +1,6 @@
+ably:
+  api:
+    key: Hbqg4w.qQ5Jjw:PvCPphyIaMpVyxgrsR8rRBwMlgceiYSKTmN1DRx0ZZE
 spring:
   kafka:
     bootstrap-servers: localhost:9092
